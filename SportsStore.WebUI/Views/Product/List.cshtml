@@ -1,0 +1,16 @@
+﻿@using BookShop.WebUI.HtmlHelpers
+@model BookShop.WebUI.Models.ProductsViewModel
+
+@{
+    ViewBag.Title = "Produkty";
+}
+
+@foreach (var prod in Model.Products)
+{
+    Html.RenderPartial("ProductSummaryView", prod);
+}
+
+<div class="Pager">
+    @Html.PageLinks(Model.PaggingInfo, x=>Url.Action("List", new {page=x, category = Model.CurrentCategory}))
+</div>
+

@@ -1,0 +1,12 @@
+﻿@model BookShop.WebUI.Models.Entities.Cart
+
+<div id="cart">
+    <span class ="caption">
+<b> Twój koszyk:</b>
+        @Model.lines.Sum(p => p.Quantity) sztuk
+        @Model.ComputeTotalValue().ToString("c");
+</span>
+    
+    @Html.ActionLink("Zamów", "Index", "Cart", new { ReturnUrl = Request.Url.PathAndQuery }, null)
+</div>
+
